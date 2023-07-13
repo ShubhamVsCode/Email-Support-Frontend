@@ -23,28 +23,30 @@ export default function Home() {
     setTableData(
       result?.map((item) => {
         return Object.values(item).map((d, i) => {
+          if (i === 0) {
             if (dayjs(d).isValid()) {
               return {
                 value: dayjs(d).format("DD/MM/YYYY"),
               };
             }
+          }
           return { value: d };
         });
       })
     );
   };
 
-  // const deleteData = async () => {
-  //   const result = await fetch(backendBaseURL + "/deleteAll/" + name, {
-  //     method: "DELETE",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       getData();
-  //       return res;
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const deleteData = async () => {
+    const result = await fetch(backendBaseURL + "/deleteAll/" + name, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        getData();
+        return res;
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     getData();
@@ -75,10 +77,7 @@ export default function Home() {
           <option value="Sukumar">Sukumar</option>
         </select>
 
-        <div style={{display: "flex"}}>
-          <button onClick={() => {
-            setStartDate(dayjs(startDate).subtract(1, "day").toDate())
-          }} >&lt;</button>
+        <div>
           <DatePicker
             dateFormat={"dd/MM/yyyy"}
             selected={startDate}
@@ -87,14 +86,11 @@ export default function Home() {
               setStartDate(date);
             }}
           />
-          <button onClick={() => {
-            setStartDate(dayjs(startDate).add(1, "day").toDate())
-          }} >&gt;</button>
         </div>
 
         <button onClick={getData}>Refecth</button>
 
-        {/* <button onClick={deleteData}>Delete All</button> */}
+        <button onClick={deleteData}>Delete All</button>
       </div>
       <div className="sheet">
       <Spreadsheet darkMode data={tableData}  />
