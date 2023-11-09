@@ -180,13 +180,7 @@ export default function Home() {
 }
 
 export function RenderAnalytics({ tableData }) {
-  const smeNames = [
-    "Srujan Papaiahgari",
-    "Aman Kumar",
-    "Parag",
-    "Vidya Sagar",
-    "Sukumar",
-  ];
+  const smeNames = SMES;
 
   function countRowsForName(name) {
     let count = 0;
