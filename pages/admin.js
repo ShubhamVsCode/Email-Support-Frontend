@@ -11,7 +11,7 @@ export default function Home() {
   const [tableData, setTableData] = useState([]);
   const [name, setName] = useState("");
 
-  const backendBaseURL = "https://brown-artist-oykby.pwskills.app:4000";
+  const backendBaseURL = "https://graceful-gabardine-ox.cyclic.app";
 
   const getData = async () => {
     const result = await fetch(backendBaseURL + "/getAll/" + name + "?date=" + startDate, {
