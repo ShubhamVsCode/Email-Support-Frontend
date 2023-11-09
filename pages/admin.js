@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { SMES } from "./index.js"
 
 export default function Home() {
   const [tableData, setTableData] = useState([]);
@@ -70,11 +71,9 @@ export default function Home() {
       <div className="top-container">
         <select style={{ padding: 10 }} onChange={handleNameChange}>
           <option value="">Select SME</option>
-          <option value="Srujan Papaiahgari">Srujan Papaiahgari</option>
-          <option value="Parag">Parag</option>
-          <option value="Aman Kumar">Aman Kumar</option>
-          <option value="Vidya Sagar">Vidya Sagar</option>
-          <option value="Sukumar">Sukumar</option>
+          {
+            SMES.map((sme) => <option value={sme} key={sme}>{sme}</option>)
+          }
         </select>
 
         <div>
