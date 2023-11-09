@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export const SMES = ["Sanjay", "Aman Kumar", "Sukumar", "Vidya Sagar", "Yash"]
+export const SMES = ["Sanjay", "Aman Kumar", "Sukumar", "Yashraj"]
 
 export default function Home() {
   const [tableData, setTableData] = useState([]);
